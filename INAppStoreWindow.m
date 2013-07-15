@@ -233,7 +233,8 @@ NS_INLINE CGGradientRef INCreateGradientWithColors(NSColor *startingColor, NSCol
             [[NSBezierPath bezierPathWithRect:self.bounds] fill];
         }
         #endif
-        clippingRect.size.height -= 1;
+		// BUG: this line is causing a white line on top of the window in 10.0DP3
+//      clippingRect.size.height -= 1;
         CGPathRef clippingPath = INCreateClippingPathWithRectAndRadius(clippingRect, INCornerClipRadius);
         CGContextAddPath(context, clippingPath);
         CGContextClip(context);
@@ -258,7 +259,8 @@ NS_INLINE CGGradientRef INCreateGradientWithColors(NSColor *startingColor, NSCol
             NSRectFill(bottomRect);
             
             if (IN_RUNNING_LION) {
-                bottomRect.origin.y += 1.0;
+				// BUG: this line is causing a white line on top of the window in 10.0DP3
+                bottomRect.origin.y += 21.0;
                 [[NSColor colorWithDeviceWhite:1.0 alpha:0.12] setFill];
                 [[NSBezierPath bezierPathWithRect:bottomRect] fill];
             }
@@ -278,7 +280,8 @@ NS_INLINE CGGradientRef INCreateGradientWithColors(NSColor *startingColor, NSCol
             CGContextClip(context);
             CGPathRelease(noiseClippingPath);
             
-            [self drawNoiseWithOpacity:0.1];
+			// BUG: Removing noise from title bar
+//            [self drawNoiseWithOpacity:0.1];
         }
     }
     
