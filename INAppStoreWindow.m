@@ -840,18 +840,18 @@ NS_INLINE CGGradientRef INCreateGradientWithColors(NSColor *startingColor, NSCol
     [minimize setFrame:minimizeFrame];
     [zoom setFrame:zoomFrame];
 
-    NSButton *docIconButton = [self standardWindowButton:NSWindowDocumentIconButton];
-    if (docIconButton) {
-        NSRect docButtonIconFrame = [docIconButton frame];
-
-        if (self.verticallyCenterTitle) {
-            docButtonIconFrame.origin.y = floorf(NSMidY(titleBarFrame) - INMidHeight(docButtonIconFrame));
-        } else {
-            docButtonIconFrame.origin.y = NSMaxY(titleBarFrame) - NSHeight(docButtonIconFrame);
-        }
-
-        [docIconButton setFrame:docButtonIconFrame];
-    }
+//    NSButton *docIconButton = [self standardWindowButton:NSWindowDocumentIconButton];
+//    if (docIconButton) {
+//        NSRect docButtonIconFrame = [docIconButton frame];
+//
+//        if (self.verticallyCenterTitle) {
+//            docButtonIconFrame.origin.y = floorf(NSMidY(titleBarFrame) - INMidHeight(docButtonIconFrame));
+//        } else {
+//            docButtonIconFrame.origin.y = NSMaxY(titleBarFrame) - NSHeight(docButtonIconFrame);
+//        }
+//
+//        [docIconButton setFrame:docButtonIconFrame];
+//    }
 
     #if IN_COMPILING_LION
     // Set the frame of the FullScreen button in Lion if available
